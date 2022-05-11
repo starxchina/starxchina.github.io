@@ -1,0 +1,236 @@
+// 屏幕变小而改变样式的阈值
+$small-screen-size: 1100px;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+hr {
+    position: relative;
+    margin: 2rem auto;
+    width: calc(100% - 4px);
+    border: 2px dashed #FFA500;
+    // background: #fff;
+}
+
+#page-bg {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    position: fixed;
+
+    background : {
+        size: cover;
+        repeat: no-repeat;
+        // 背景图像固定
+        attachment: fixed;
+        // 使得图片的中心在浏览器的中心
+        position: 50% 50%;
+        color: rgb(255, 255, 255);
+        image: url('../img/background.jpg');
+    }
+
+    // 这里主要是覆盖一个暗的背景
+    &:after {
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        position: fixed;
+        background-color: rgba(169, 169, 169, .3);
+    }
+}
+
+.content-wrap {
+    display: flex;
+    padding: 1.5rem 0;
+    width: 75%;
+    height: auto;
+    // 注意. 这里写margin: 1rem; 会出现左右无法对齐的现象
+    margin: 1rem auto;
+    justify-content: center;
+    flex-flow: row nowrap;
+
+    @media screen and (max-width: $small-screen-size) {
+        width: 100%;
+        flex-direction: column;
+
+        nav {
+            width: 100%;
+
+            .card-intro {
+                img {
+                    display: none;
+                }
+            }
+        }
+
+        article {
+            width: 100%;
+        }
+    }
+}
+
+nav {
+    width: 28%;
+    // 这里的height必须要, 否则sticky无法实现
+    height: 100%;
+
+    @media screen and (min-width: var(--small-screen-size)) {
+        &.sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+    }
+
+}
+
+
+.card {
+    // background-color: rgba($color: #FFF, $alpha: 0.8);
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 6px rgba(7, 17, 27, .06);
+    // margin: .5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+    padding: 1.5rem 1rem .5rem;
+    // 毛玻璃效果
+    backdrop-filter: blur(5px);
+    // border: dashed 1px;
+}
+
+.card-content {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.card-intro {
+    .profile-photo {
+        display: inline-block;
+        padding: 5px;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 4rem;
+        vertical-align: top;
+    }
+
+    .author-name {
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+
+    .author-description {
+        font-size: .9rem;
+        margin-top: .5rem;
+    }
+
+    .author-social-icons {
+        margin-top: .8rem;
+
+        .social-icon-github {
+            font-size: 2rem;
+            color: #000;
+        }
+    }
+}
+
+.card-catalogue {
+    a {
+        display: block;
+        text-decoration: none;
+        margin-bottom: .5rem;
+        padding: .5rem;
+        border-bottom: 1.5px solid #FFA500;
+
+        color: black;
+
+        i {
+            margin-right: .5rem;
+        }
+
+        &:hover {
+            background-color: rgba($color: #FFA500, $alpha: .3);
+            // border-bottom: solid #8B4513;
+
+        }
+
+        @media screen and (max-width : 1200px) {
+            i {
+                display: block;
+                margin-bottom: .5rem;
+            }
+        }
+
+
+    }
+
+    @media screen and (max-width : $small-screen-size) {
+        ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        li {
+            display: inline-block;
+            font-size: .8rem;
+        }
+
+    }
+
+}
+
+article {
+    width: 72%;
+
+    // height: 2500px;
+    // background-color: blue;
+    .article-content {
+        margin-top: 1rem;
+    }
+}
+
+#skills {
+
+    .skillbar {
+        .skill-title {
+            color: black;
+            font-size: 1.2rem;
+            padding-bottom: 6px;
+            padding-top: 10px;
+        }
+
+        .skill-progress {
+            background-color: rgba(255, 255, 255, .2);
+            height: 6px;
+            border-radius: 3px;
+            width: 90%;
+
+            .skill-progress-level {
+                height: inherit;
+                background-color: white;
+                border-radius: 3px;
+            }
+        }
+    }
+}
+
+#awards {
+    .awards-content {
+        li>.awards-year {
+            padding-left: 2rem;
+        }
+    }
+}
