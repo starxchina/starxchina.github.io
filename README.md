@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This is the homepage of Starxchina, and everything will be improved from time to time.
+This is the homepage of Starxchina, and everything will be updated from time to time.
 
 ## X. Reference
 
