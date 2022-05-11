@@ -1,5 +1,6 @@
 // 屏幕变小而改变样式的阈值
-$small-screen-size: 1100px;
+$small-screen-size: 900px;
+$middle-screen-size: 1300px;
 
 * {
     padding: 0;
@@ -16,7 +17,7 @@ hr {
     position: relative;
     margin: 2rem auto;
     width: calc(100% - 4px);
-    border: 2px dashed #FFA500;
+    border: 2px dashed #ffa500;
     // background: #fff;
 }
 
@@ -36,19 +37,19 @@ hr {
         // 使得图片的中心在浏览器的中心
         position: 50% 50%;
         color: rgb(255, 255, 255);
-        image: url('../img/background.jpg');
+        image: url("../img/background.jpg");
     }
 
     // 这里主要是覆盖一个暗的背景
     &:after {
-        content: '';
+        content: "";
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         z-index: -1;
         position: fixed;
-        background-color: rgba(169, 169, 169, .3);
+        background-color: rgba(169, 169, 169, 0.3);
     }
 }
 
@@ -61,6 +62,10 @@ hr {
     margin: 1rem auto;
     justify-content: center;
     flex-flow: row nowrap;
+
+    @media screen and (max-width: $middle-screen-size) {
+        width: 100%;
+    }
 
     @media screen and (max-width: $small-screen-size) {
         width: 100%;
@@ -94,19 +99,17 @@ nav {
             top: 0;
         }
     }
-
 }
-
 
 .card {
     // background-color: rgba($color: #FFF, $alpha: 0.8);
     border-radius: 3px;
-    box-shadow: 0 4px 8px 6px rgba(7, 17, 27, .06);
+    box-shadow: 0 4px 8px 6px rgba(7, 17, 27, 0.06);
     // margin: .5rem;
-    margin-left: .5rem;
-    margin-right: .5rem;
-    margin-bottom: .5rem;
-    padding: 1.5rem 1rem .5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1.5rem 1rem 0.5rem;
     // 毛玻璃效果
     backdrop-filter: blur(5px);
     // border: dashed 1px;
@@ -133,12 +136,12 @@ nav {
     }
 
     .author-description {
-        font-size: .9rem;
-        margin-top: .5rem;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
 
     .author-social-icons {
-        margin-top: .8rem;
+        margin-top: 0.8rem;
 
         .social-icon-github {
             font-size: 2rem;
@@ -151,33 +154,30 @@ nav {
     a {
         display: block;
         text-decoration: none;
-        margin-bottom: .5rem;
-        padding: .5rem;
-        border-bottom: 1.5px solid #FFA500;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        border-bottom: 1.5px solid #ffa500;
 
         color: black;
 
         i {
-            margin-right: .5rem;
+            margin-right: 0.5rem;
         }
 
         &:hover {
-            background-color: rgba($color: #FFA500, $alpha: .3);
+            background-color: rgba($color: #ffa500, $alpha: 0.3);
             // border-bottom: solid #8B4513;
-
         }
 
-        @media screen and (max-width : 1200px) {
+        @media screen and (max-width: 1200px) {
             i {
                 display: block;
-                margin-bottom: .5rem;
+                margin-bottom: 0.5rem;
             }
         }
-
-
     }
 
-    @media screen and (max-width : $small-screen-size) {
+    @media screen and (max-width: $small-screen-size) {
         ul {
             display: flex;
             justify-content: space-around;
@@ -185,11 +185,9 @@ nav {
 
         li {
             display: inline-block;
-            font-size: .8rem;
+            font-size: 0.8rem;
         }
-
     }
-
 }
 
 article {
@@ -203,7 +201,6 @@ article {
 }
 
 #skills {
-
     .skillbar {
         .skill-title {
             color: black;
@@ -213,7 +210,7 @@ article {
         }
 
         .skill-progress {
-            background-color: rgba(255, 255, 255, .2);
+            background-color: rgba(255, 255, 255, 0.2);
             height: 6px;
             border-radius: 3px;
             width: 90%;
@@ -229,7 +226,7 @@ article {
 
 #awards {
     .awards-content {
-        li>.awards-year {
+        li > .awards-year {
             padding-left: 2rem;
         }
     }
